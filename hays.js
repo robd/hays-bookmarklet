@@ -12,7 +12,8 @@ function markRangeAsAbsence(startDay,endDay,absenceType) {
 }; 
 function markRangeAsWorked(startDay,endDay) { 
         for (var dayOfWeek=startDay;dayOfWeek<=endDay;dayOfWeek=dayOfWeek+1) { 
-                getElement("hours"+dayOfWeek).value=1; selectDropdownIndex("hoursdd"+dayOfWeek,1); 
+                getElement("hours"+dayOfWeek).value=1; 
+                selectDropdownIndex("hoursdd"+dayOfWeek,1); 
         } 
 }; 
 function fillInNormalWeek() { 
