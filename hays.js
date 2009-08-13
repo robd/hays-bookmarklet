@@ -19,16 +19,17 @@ function markRangeAsWorked(startDay,endDay) {
 function fillInNormalWeek() { 
         markRangeAsAbsence(1,2,3); 
         markRangeAsWorked(3,7); 
-        selectDropdownIndex("Invoice",1); 
-        getElement("NewRate").focus(); 
+        selectDropdownIndex("Invoice",1);
+        fillInIncrementedInvoiceRef();
 }; 
 function fillInHolidayWeek() { 
         markRangeAsAbsence(1,7,3); 
-        selectDropdownIndex("Invoice",1); 
-        getElement("NewRate").focus(); 
+        selectDropdownIndex("Invoice",1);
+        fillInIncrementedInvoiceRef();
 };
 function fillInIncrementedInvoiceRef() {
         getElement("NewRate").value=increment(getElement("PreviousRate").value);
+        getElement("NewRate").focus(); 
 };
 function increment(oldInvoiceRef) {
         return oldInvoiceRef.replace(/(\d+)/, function(fullMatch, n) {return Number(n) + 1;});
