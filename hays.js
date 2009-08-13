@@ -30,7 +30,7 @@ function fillInHolidayWeek() {
 function fillInIncrementedInvoiceRef() {
         getElement("NewRate").value=increment(getElement("PreviousRate").value);
 };
-function increment(var oldInvoiceRef) {
+function increment(oldInvoiceRef) {
         return oldInvoiceRef.replace(/(\d+)/, function(fullMatch, n) {return Number(n) + 1;});
 }
 fillInNormalWeek();
