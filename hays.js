@@ -26,5 +26,11 @@ function fillInHolidayWeek() {
         markRangeAsAbsence(1,7,3); 
         selectDropdownIndex("Invoice",1); 
         getElement("NewRate").focus(); 
-}; 
+};
+function fillInIncrementedInvoiceRef() {
+        getElement("NewRate").value=increment(getElement("PreviousRate").value);
+};
+function increment(var oldInvoiceRef) {
+        return oldInvoiceRef.replace(/(\d+)/, function(fullMatch, n) {return Number(n) + 1;});
+}
 fillInNormalWeek();
