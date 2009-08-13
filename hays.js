@@ -31,6 +31,9 @@ function fillInIncrementedInvoiceRef() {
         getElement("Password").focus();
 };
 function increment(oldInvoiceRef) {
-        return oldInvoiceRef.replace(/(\d+)/, function(fullMatch, n) {return Number(n) + 1;});
+        return oldInvoiceRef.replace(/(\d+)/, function(fullMatch, digits) {
+                var leadingZeros = digits.match(/0+/);
+                return leadingZeros + (Number(digits) + 1);
+        });
 }
 fillInNormalWeek();
