@@ -15,15 +15,6 @@ function markRangeAsWorked(startDay,endDay) {
                 getElement("hours"+dayOfWeek).value=1; 
                 selectDropdownIndex("hoursdd"+dayOfWeek,1); 
         } 
-}; 
-function fillInNormalWeek() { 
-        markRangeAsAbsence(1,2,3); 
-        markRangeAsWorked(3,7); 
-        fillInIncrementedInvoiceRef();
-}; 
-function fillInHolidayWeek() { 
-        markRangeAsAbsence(1,7,3);
-        fillInIncrementedInvoiceRef();
 };
 function fillInIncrementedInvoiceRef() {
         selectDropdownIndex("Invoice",1);
@@ -36,4 +27,12 @@ function increment(oldInvoiceRef) {
                 return leadingZeros + (Number(digits) + 1);
         });
 }
-fillInNormalWeek();
+function fillInNormalWeek() { 
+        markRangeAsAbsence(1,2,3); 
+        markRangeAsWorked(3,7); 
+        fillInIncrementedInvoiceRef();
+}; 
+function fillInHolidayWeek() { 
+        markRangeAsAbsence(1,7,3);
+        fillInIncrementedInvoiceRef();
+};
