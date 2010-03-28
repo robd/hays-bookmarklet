@@ -5,28 +5,15 @@
 	function selectDropdownIndex(elementName, index) {
 		getElement(elementName).selectedIndex=index;
 	};
-	function markDayAsAbsence(dayOfWeek) {
-		getElement("hours"+dayOfWeek).value="";
-		selectDropdownIndex("hoursdd"+dayOfWeek,0);
-
-		selectDropdownIndex("absencetype"+dayOfWeek,3);
-		selectDropdownIndex("absenceunit"+dayOfWeek,1);
+	function markDay(dayOfWeek, worked) {
+		getElement("hours"+dayOfWeek).value=worked ? "1" : "";
+		selectDropdownIndex("hoursdd"+dayOfWeek, worked ? 1 : 0);
+		selectDropdownIndex("absencetype"+dayOfWeek,worked ? 0 : 3);
+		selectDropdownIndex("absenceunit"+dayOfWeek,worked ? 0 : 1);
 	};
-	function markDayAsWorked(dayOfWeek) {
-		selectDropdownIndex("absencetype"+dayOfWeek,0);
-		selectDropdownIndex("absenceunit"+dayOfWeek,0);
-
-		getElement("hours"+dayOfWeek).value=1;
-		selectDropdownIndex("hoursdd"+dayOfWeek,1);
-	};
-	function markWeekdaysAsAbsence(numberOfDays) {
+	function markWeekdays(worked) {
 		for (var dayOfWeek=3;dayOfWeek<=7;dayOfWeek=dayOfWeek+1) {
-			markDayAsAbsence(dayOfWeek);
-		}
-	};
-	function markWeekdaysAsWorked() {
-		for (var dayOfWeek=3;dayOfWeek<=7;dayOfWeek=dayOfWeek+1) {
-			markDayAsWorked(dayOfWeek);
+			markDay(dayOfWeek, worked);
 		}
 	};
 	function weekdaysMarkedAsWorked() {
@@ -39,10 +26,6 @@
 	};
 	markDayAsAbsence(1);
 	markDayAsAbsence(2);
-	if (weekdaysMarkedAsWorked()) {
-		markWeekdaysAsAbsence();
-	} else {
-		markWeekdaysAsWorked();
-	}
+	markWeekdays(!weekdaysMarkedAsWorked());
 	getElement("Password").focus();
 })();
