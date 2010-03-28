@@ -5,9 +5,9 @@
 	function selectDropdownIndex(elementName, index) {
 		getElement(elementName).selectedIndex=index
 	}; 
-	function markRangeAsAbsence(startDay,endDay,absenceType) {
-		for (var dayOfWeek=startDay;dayOfWeek<=endDay;dayOfWeek=dayOfWeek+1) {
-			selectDropdownIndex("absencetype"+dayOfWeek,absenceType);
+	function markDaysAsAbsence(numberOfDays) {
+		for (var dayOfWeek=1;dayOfWeek<=numberOfDays;dayOfWeek=dayOfWeek+1) {
+			selectDropdownIndex("absencetype"+dayOfWeek,3);
 			selectDropdownIndex("absenceunit"+dayOfWeek,1);
 		}
 	};
@@ -18,13 +18,12 @@
 		}
 	};
 	function fillInNormalWeek() {
-		markRangeAsAbsence(1,2,3);
+		markDaysAsAbsence(2);
 		markRangeAsWorked(3,7);
-		getElement("Password").focus();
 	};
 	function fillInHolidayWeek() {
-		markRangeAsAbsence(1,7,3);
-		getElement("Password").focus();
+		markDaysAsAbsence(7);
 	};
 	fillInNormalWeek();
+	getElement("Password").focus();
 })();
