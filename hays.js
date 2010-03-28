@@ -24,8 +24,8 @@
 		}
 		return true;
 	};
-	markDayAsAbsence(1);
-	markDayAsAbsence(2);
+	markDay(1, false);
+	markDay(2, false);
 	markWeekdays(!weekdaysMarkedAsWorked());
 	getElement("Password").focus();
 })();
