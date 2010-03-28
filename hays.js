@@ -4,17 +4,23 @@
 	};
 	function selectDropdownIndex(elementName, index) {
 		getElement(elementName).selectedIndex=index;
-	}; 
+	};
+	function markDayAsAbsence(dayOfWeek) {
+		selectDropdownIndex("absencetype"+dayOfWeek,3);
+		selectDropdownIndex("absenceunit"+dayOfWeek,1);
+	};
 	function markDaysAsAbsence(numberOfDays) {
 		for (var dayOfWeek=1;dayOfWeek<=numberOfDays;dayOfWeek=dayOfWeek+1) {
-			selectDropdownIndex("absencetype"+dayOfWeek,3);
-			selectDropdownIndex("absenceunit"+dayOfWeek,1);
+			markDayAsAbscence(dayOfWeek);
 		}
+	};
+	function markDayAsWorked(dayOfWeek) {
+		getElement("hours"+dayOfWeek).value=1;
+		selectDropdownIndex("hoursdd"+dayOfWeek,1);
 	};
 	function markWeekdaysAsWorked() {
 		for (var dayOfWeek=3;dayOfWeek<=7;dayOfWeek=dayOfWeek+1) {
-			getElement("hours"+dayOfWeek).value=1;
-			selectDropdownIndex("hoursdd"+dayOfWeek,1);
+			markDayAsWorked(dayOfWeek);
 		}
 	};
 	function weekdaysMarkedAsWorked() {
