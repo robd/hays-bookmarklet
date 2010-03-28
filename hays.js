@@ -1,3 +1,4 @@
+void(
 function getElement(elementName) {
         return window.frames[2].document.getElementsByName(elementName)[0];
 };
@@ -25,3 +26,5 @@ function fillInHolidayWeek() {
         markRangeAsAbsence(1,7,3);
         getElement("Password").focus();
 };
+fillInNormalWeek();
+);
