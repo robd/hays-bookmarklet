@@ -1,4 +1,4 @@
-function(){
+(function(){
 	function getElement(elementName) {
 		return window.frames[2].document.getElementsByName(elementName)[0];
 	};
@@ -27,4 +27,4 @@ function(){
 		getElement("Password").focus();
 	};
 	fillInNormalWeek();
-}();
+})();
