@@ -11,7 +11,7 @@
 	};
 	function markDaysAsAbsence(numberOfDays) {
 		for (var dayOfWeek=1;dayOfWeek<=numberOfDays;dayOfWeek=dayOfWeek+1) {
-			markDayAsAbscence(dayOfWeek);
+			markDayAsAbsence(dayOfWeek);
 		}
 	};
 	function markDayAsWorked(dayOfWeek) {
