@@ -3,7 +3,7 @@
 		return window.frames[2].document.getElementsByName(elementName)[0];
 	};
 	function selectDropdownIndex(elementName, index) {
-		getElement(elementName).selectedIndex=index
+		getElement(elementName).selectedIndex=index;
 	}; 
 	function markDaysAsAbsence(numberOfDays) {
 		for (var dayOfWeek=1;dayOfWeek<=numberOfDays;dayOfWeek=dayOfWeek+1) {
@@ -17,13 +17,7 @@
 			selectDropdownIndex("hoursdd"+dayOfWeek,1);
 		}
 	};
-	function fillInNormalWeek() {
-		markDaysAsAbsence(2);
-		markRangeAsWorked(3,7);
-	};
-	function fillInHolidayWeek() {
-		markDaysAsAbsence(7);
-	};
-	fillInNormalWeek();
+	markDaysAsAbsence(2);
+	markRangeAsWorked(3,7);
 	getElement("Password").focus();
 })();
