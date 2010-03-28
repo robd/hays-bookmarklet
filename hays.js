@@ -28,7 +28,7 @@
 	markDaysAsAbsence(2);
 	if (weekdaysMarkedAsWorked()) {
 		markDaysAsAbsence(7);
-	} else 
+	} else {
 		markWeekdaysAsWorked();
 	}
 	getElement("Password").focus();
