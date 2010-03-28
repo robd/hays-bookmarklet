@@ -6,10 +6,10 @@
 		getElement(elementName).selectedIndex=index;
 	};
 	function markDay(dayOfWeek, worked) {
-		getElement("hours"+dayOfWeek).value=worked ? "1" : "";
+		getElement("hours"+dayOfWeek).value = worked ? "1" : "";
 		selectDropdownIndex("hoursdd"+dayOfWeek, worked ? 1 : 0);
-		selectDropdownIndex("absencetype"+dayOfWeek,worked ? 0 : 3);
-		selectDropdownIndex("absenceunit"+dayOfWeek,worked ? 0 : 1);
+		selectDropdownIndex("absencetype"+dayOfWeek, worked ? 0 : 3);
+		selectDropdownIndex("absenceunit"+dayOfWeek, worked ? 0 : 1);
 	};
 	function markWeekdays(worked) {
 		for (var dayOfWeek=3;dayOfWeek<=7;dayOfWeek=dayOfWeek+1) {
