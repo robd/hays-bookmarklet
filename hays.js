@@ -19,7 +19,7 @@
 		getElement("hours"+dayOfWeek).value=1;
 		selectDropdownIndex("hoursdd"+dayOfWeek,1);
 	};
-	function markWeekdaysAsWorked(numberOfDays) {
+	function markWeekdaysAsAbsence(numberOfDays) {
 		for (var dayOfWeek=3;dayOfWeek<=7;dayOfWeek=dayOfWeek+1) {
 			markDayAsAbsence(dayOfWeek);
 		}
@@ -40,7 +40,7 @@
 	markDayAsAbsence(1);
 	markDayAsAbsence(2);
 	if (weekdaysMarkedAsWorked()) {
-		markWeekdaysAsWorked();
+		markWeekdaysAsAbsence();
 	} else {
 		markWeekdaysAsWorked();
 	}
